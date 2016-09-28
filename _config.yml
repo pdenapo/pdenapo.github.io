@@ -9,7 +9,7 @@
 title: Algunos Bytes Personales
 email: pdenapo@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
- A blog by Pablo De Nápoli on programming.
+ A blog by Pablo De Nápoli on free software and programming.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://pdenapo.github.io" # the base hostname & protocol for your site
 twitter_username: pdenapo

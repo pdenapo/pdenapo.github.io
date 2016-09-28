@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algunos Bytes Personales</title>
-    <description>A blog by Pablo De Nápoli on programming.
+    <description>A blog by Pablo De Nápoli on free software and programming.
 </description>
     <link>http://pdenapo.github.io/</link>
     <atom:link href="http://pdenapo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 28 Sep 2016 12:21:15 +0000</pubDate>
-    <lastBuildDate>Wed, 28 Sep 2016 12:21:15 +0000</lastBuildDate>
+    <pubDate>Wed, 28 Sep 2016 12:28:41 +0000</pubDate>
+    <lastBuildDate>Wed, 28 Sep 2016 12:28:41 +0000</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Building ReactOS under GNU/Linux !</title>
-        <description>&lt;p&gt;React OS is a free-software/open source clone of MS-Windows, in active development. I am a free software advocate, so I want to help to test it, even though I am a GNU/Linux user/programmer, and I know nothing about the MS-Windows internals… In this blog, I will share some experiences about it, so you can also join the React OS testing/development.&lt;/p&gt;
+        <title>Building ReactOS under GNU/Linux</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.reactos.org/&quot;&gt;React OS&lt;/a&gt; is a free-software/open source clone of MS-Windows, in active development. I am a free software advocate, so I want to help to test it, even though I am a GNU/Linux user/programmer, and I know nothing about the MS-Windows internals… In this blog, I will share some experiences about it, so you can also join the React OS testing/development.&lt;/p&gt;
 
 &lt;p&gt;My first step was to build React OS from the sources. In order to do so, the first thing that you need to do is to build your React OS build environment, which provides versions of binutils/gcc etc. specially prepared for cross-compiling React OS under GNU/Linux.&lt;/p&gt;
 

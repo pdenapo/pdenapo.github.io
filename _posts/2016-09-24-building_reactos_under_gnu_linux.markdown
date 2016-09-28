@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Building ReactOS under GNU/Linux !"
+title:  "Building ReactOS under GNU/Linux"
 date:   2016-09-24 21:09:32 -0300
 categories: React OS
 ---
 
-React OS is a free-software/open source clone of MS-Windows, in active development. I am a free software advocate, so I want to help to test it, even though I am a GNU/Linux user/programmer, and I know nothing about the MS-Windows internals... In this blog, I will share some experiences about it, so you can also join the React OS testing/development.
+[React OS](http://www.reactos.org/) is a free-software/open source clone of MS-Windows, in active development. I am a free software advocate, so I want to help to test it, even though I am a GNU/Linux user/programmer, and I know nothing about the MS-Windows internals... In this blog, I will share some experiences about it, so you can also join the React OS testing/development.
 
 My first step was to build React OS from the sources. In order to do so, the first thing that you need to do is to build your React OS build environment, which provides versions of binutils/gcc etc. specially prepared for cross-compiling React OS under GNU/Linux.
 
