@@ -20,9 +20,7 @@ cd reactos-work
 
 2) Get the current version of the React OS build environment from the React OS page at sourceforge, for example
 
-
-http://sourceforge.net/projects/reactos/files/RosBE-Unix/2.1.2/RosBE-Unix-2.1.2.tar.bz2/
-
+<http://sourceforge.net/projects/reactos/files/RosBE-Unix/2.1.2/RosBE-Unix-2.1.2.tar.bz2/>
 
 and extract it to your working directory, with the order
 
@@ -32,22 +30,17 @@ tar xvf RosBE-Unix-2.1.1.tar.bz2
 
 3) Run the script RosBE-builder.sh telling it where do you want to create your React OS build environment.  Even tough the script recommends that you run it as root, don't do it! It is not really need it, and its always a bad idea to run something as root when it is not the case.
 
-
-./RosBE-Builder.sh /home/user/reactos-work/RosBE
-
-
-(change here user by your user name!)
-
-
-It will check for the necessary dependencies (bison, flex, gcc,g++, grep, makeinfo and GNU make), and build the necessary tools. Should any of them be missing, install it. In my system, it complains about the missing ldconfig, but is was easy to fix: just add /sbin to the PATH by using
-
 {% highlight bash %}
-export PATH="/sbin:$PATH"
+./RosBE-Builder.sh /home/user/reactos-work/RosBE
 {% endhighlight %}
 
+(change here /home/user/reactos-work by the path where you have installed
+RosBE !)
 
-If something goes wrong, the script will tell you and you might want to check the build log. In that case, report it in Reactos Jira.
-
+It will check for the necessary dependencies (bison, flex, gcc,g++, grep, makeinfo and GNU make), 
+Should any of them be missing, install it.If something goes wrong, the script will tell you and you might want to check the 
+build log. In that case, report it in Reactos
+[Jira](http://jira.reactos.org/).
 
 
 4) Ok, if everything went fine, now you are ready to build React OS from the sources.To enter the React OS build environment, run
@@ -76,16 +69,24 @@ For a list of all included commands, type: "help"
 {% endhighlight %}
 
 
-5) Now get the current version of the sources using subversion:
+5) Now get the current version of the sources using subversion. Use 
 
 {% highlight bash %}
 svn checkout svn://svn.reactos.org/reactos/trunk/reactos
 {% endhighlight %}
 
+if you just want the main React OS source code, o 
+
+{% highlight bash %}
+svn checkout svn://svn.reactos.org/reactos/trunk/
+{% endhighlight %}
+
+if you want some extra stuff (documentation,rostests, wallpapers, etc.)
+
 React OS is currently using cmake and ninja (which are provided in the React OS development environment) for the building process. 
 
-
-6) Finally,  create a directory rosbuild for your build, and run the configure script from the top of the source tree:
+6) Finally, create a directory rosbuild for your build, and run the configure 
+script from the top of the source tree:
 
 {% highlight bash %}
 mkdir rosbuild
@@ -95,19 +96,9 @@ cd rosbuild
 ../reactos/configure.sh
 {% endhighlight %}
 
-Two directories are created: host-tools and reactos. Go first to the host-tools and run "ninja all" inside:
+Finally, run ninja bootcd inside the rosbuild directory for creating the boot cd for React OS.
 
 {% highlight bash %}
-cd host-tools
-
-ninja all
-{% endhighlight %}
-
-Then go to the reactos subdirectory and run ninja bootcd for creating the boot cd for React OS.
-
-{% highlight bash %}
-cd reactos
-
 ninja bootcd
 {% endhighlight %}
 
