@@ -43,7 +43,7 @@ build log. In that case, report it in Reactos
 [Jira](http://jira.reactos.org/).
 
 
-4) Ok, if everything went fine, now you are ready to build React OS from the sources.To enter the React OS build environment, run
+4) OK, if everything went fine, now you are ready to build React OS from the sources.To enter the React OS build environment, run
 
 {% highlight bash %}
 /home/user/reactos-work/reactos-work/RosBE/RosBE.sh

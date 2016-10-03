@@ -6,9 +6,67 @@
 </description>
     <link>http://pdenapo.github.io/</link>
     <atom:link href="http://pdenapo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 28 Sep 2016 12:28:41 +0000</pubDate>
-    <lastBuildDate>Wed, 28 Sep 2016 12:28:41 +0000</lastBuildDate>
+    <pubDate>Sun, 02 Oct 2016 23:59:31 +0000</pubDate>
+    <lastBuildDate>Sun, 02 Oct 2016 23:59:31 +0000</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Creating a Chroot</title>
+        <description>&lt;p&gt;In this site, I’m using &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. I wanted to test 
+Jekyll on a host running Ubuntu 14.04 LTS, but the version of Jekyll in 
+that distribution is rather old (0.11.2-1 when current version is 3.2.1).
+However, I didn’t want to upgrade the hole system just because of that, so I
+remember an old useful trick, that it is very useful in situations like this: 
+creating a chroot. I learnt about it while
+&lt;a href=&quot;https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base&quot;&gt;installing Gentoo&lt;/a&gt;
+(a source-based GNU/Linux distribution).&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&quot;https://en.wikipedia.org/wiki/Chroot&quot;&gt;chroot&lt;/a&gt; on Unix operating systems is an operation that changes the apparent 
+root directory for the current running process and its children. 
+A program that is run in such a modified environment cannot name (and therefore 
+normally cannot access) files outside the designated directory tree.&lt;/p&gt;
+
+&lt;p&gt;You can install a completly different version of GNU/Linux inside the chroot.
+&lt;a href=&quot;https://wiki.debian.org/chroot&quot;&gt;Here&lt;/a&gt; you can find some useful
+documentation on how to do that. In particular, you can use
+[debootstrap][https://www.debian.org/releases/stable/amd64/apds03.html.en]
+for installing a Debian system (or its derivatives like Ubuntu) inside
+another. For instance, I have used debootstrap for installing  Ubuntu 
+Xenial Xerus (16.04) instance (which provides the updated jekyll package
+that I needed) inside my Ubuntu 14.04 system, by running&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;debootstrap xenial /xenial-root&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You need to mount several pseudo filesystems before entering into the 
+the chrooted enviroment.using the command chroot. I am using the following
+script for doing that.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh -v&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Script to enter into the xenial chroot&lt;/span&gt;
+mount proc xenial-root/proc -t proc
+mount sysfs xenial-root/sys -t sysfs
+mount --bind /dev/pts /xenial-root/dev/pts
+cp /etc/hosts xenial-root/etc/hosts
+chroot xenial-root /bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Note that a chroot has several security limitations (see the &lt;a href=&quot;https://en.wikipedia.org/wiki/Chroot&quot;&gt;Wikipedia page
+for chroot&lt;/a&gt;. If you need something
+more secure, there are other options like using
+&lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; or using a virtual machine (with
+&lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;Virtualbox&lt;/a&gt; or
+&lt;a href=&quot;http://wiki.qemu.org/Main_Page&quot;&gt;Quemu&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 25 Sep 2016 00:09:32 +0000</pubDate>
+        <link>http://pdenapo.github.io/gnu/linux/tricks/2016/09/25/creating_a_chroot.html</link>
+        <guid isPermaLink="true">http://pdenapo.github.io/gnu/linux/tricks/2016/09/25/creating_a_chroot.html</guid>
+        
+        
+        <category>GNU/Linux</category>
+        
+        <category>tricks</category>
+        
+      </item>
     
       <item>
         <title>Building ReactOS under GNU/Linux</title>
