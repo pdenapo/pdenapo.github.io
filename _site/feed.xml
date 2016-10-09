@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Algunos Bytes Personales</title>
+    <title>Some Personal Bytes</title>
     <description>A blog by Pablo De Nápoli on free software and programming.
 </description>
     <link>http://pdenapo.github.io/</link>
     <atom:link href="http://pdenapo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Oct 2016 23:59:31 +0000</pubDate>
-    <lastBuildDate>Sun, 02 Oct 2016 23:59:31 +0000</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <pubDate>Sun, 09 Oct 2016 13:31:33 +0000</pubDate>
+    <lastBuildDate>Sun, 09 Oct 2016 13:31:33 +0000</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>Creating a Chroot</title>
@@ -26,7 +26,7 @@ root directory for the current running process and its children.
 A program that is run in such a modified environment cannot name (and therefore 
 normally cannot access) files outside the designated directory tree.&lt;/p&gt;
 
-&lt;p&gt;You can install a completly different version of GNU/Linux inside the chroot.
+&lt;p&gt;You can install a completely different version of GNU/Linux inside the chroot.
 &lt;a href=&quot;https://wiki.debian.org/chroot&quot;&gt;Here&lt;/a&gt; you can find some useful
 documentation on how to do that. In particular, you can use
 [debootstrap][https://www.debian.org/releases/stable/amd64/apds03.html.en]
@@ -49,8 +49,22 @@ mount --bind /dev/pts /xenial-root/dev/pts
 cp /etc/hosts xenial-root/etc/hosts
 chroot xenial-root /bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
+&lt;p&gt;Tip: if you install a Debian-derived system (like Ubunutu) is convenient to
+create a file /etc/debian_chroot file with a name for your chroot
+environment. This will be shown in the shell prompt so you can easily know
+if you are inside the chroot or not, thanks to the follwing
+magic in /etc/bash.bashrc which sets the PS1 environment variable.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# set variable identifying the chroot you work in (used in the prompt below)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;debian_chroot&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -r /etc/debian_chroot &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
+    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;debian_chroot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;cat /etc/debian_chroot&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# set a fancy prompt (non-color, overwrite the one in /etc/profile)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;Note that a chroot has several security limitations (see the &lt;a href=&quot;https://en.wikipedia.org/wiki/Chroot&quot;&gt;Wikipedia page
-for chroot&lt;/a&gt;. If you need something
+for chroot&lt;/a&gt; ). If you need something
 more secure, there are other options like using
 &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; or using a virtual machine (with
 &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;Virtualbox&lt;/a&gt; or
@@ -100,7 +114,7 @@ Should any of them be missing, install it.If something goes wrong, the script wi
 build log. In that case, report it in Reactos
 &lt;a href=&quot;http://jira.reactos.org/&quot;&gt;Jira&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;4) Ok, if everything went fine, now you are ready to build React OS from the sources.To enter the React OS build environment, run&lt;/p&gt;
+&lt;p&gt;4) OK, if everything went fine, now you are ready to build React OS from the sources.To enter the React OS build environment, run&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/home/user/reactos-work/reactos-work/RosBE/RosBE.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -170,7 +184,7 @@ ninja bootcd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Popen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;svnversion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/user/reactos-work/reactos&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PIPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stderr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PIPE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r&#39;(|&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d+M?S?):?(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d+)(M?)S?&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r'(|&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d+M?S?):?(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d+)(M?)S?'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;rev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;new_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bootcd-mine-&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.iso&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_name&lt;/span&gt;

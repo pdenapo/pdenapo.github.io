@@ -19,10 +19,10 @@ root directory for the current running process and its children.
 A program that is run in such a modified environment cannot name (and therefore 
 normally cannot access) files outside the designated directory tree. 
 
-You can install a completely different version of GNU/Linux inside the chroot.
+You can install a completely different flavor of GNU/Linux inside the chroot.
 [Here](https://wiki.debian.org/chroot) you can find some useful
 documentation on how to do that. In particular, you can use
-[debootstrap][https://www.debian.org/releases/stable/amd64/apds03.html.en]
+[debootstrap](https://www.debian.org/releases/stable/amd64/apds03.html.en)
 for installing a Debian system (or its derivatives like Ubuntu) inside
 another. For instance, I have used debootstrap for installing  Ubuntu 
 Xenial Xerus (16.04) instance (which provides the updated jekyll package
@@ -33,7 +33,7 @@ debootstrap xenial /xenial-root
 {% endhighlight %}
 
 You need to mount several pseudo filesystems before entering into the 
-the chrooted enviroment.using the command chroot. I am using the following
+the chrooted environment.using the command chroot. I am using the following
 script for doing that.
 
 {% highlight bash %}
@@ -46,10 +46,34 @@ cp /etc/hosts xenial-root/etc/hosts
 chroot xenial-root /bin/bash
 {% endhighlight %}
 
+Tip: if you install a Debian-derived system (like Ubunutu) is convenient to
+create a file **/etc/debian_chroot** file with a name for your chroot
+environment. This will be shown in the shell prompt so you can easily know
+whether you are inside the chroot or not, thanks to the following
+magic in **/etc/bash.bashrc** which sets the PS1 environment variable.
+
+{% highlight bash %}
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, overwrite the one in /etc/profile)
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+{% endhighlight %}
+
 Note that a chroot has several security limitations (see the [Wikipedia page
-for chroot](https://en.wikipedia.org/wiki/Chroot). If you need something
+for chroot](https://en.wikipedia.org/wiki/Chroot) ). If you need something
 more secure, there are other options like using
 [Docker](https://www.docker.com/) or using a virtual machine (with
 [Virtualbox](https://www.virtualbox.org/) or
 [Quemu](http://wiki.qemu.org/Main_Page).
+
+Note also that you will be still running the same kernel of the host system.
+This places some limitations (The chroot technique won't work if the system 
+that you want to run inside it needs some newer features in the kernel that
+are not available in the host!).
+
+
+
  
