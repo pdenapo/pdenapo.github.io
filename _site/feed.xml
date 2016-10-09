@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Some Personal Bytes</title>
+    <title>Some Random Personal Bytes</title>
     <description>A blog by Pablo De Nápoli on free software and programming.
 </description>
     <link>http://pdenapo.github.io/</link>
     <atom:link href="http://pdenapo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Oct 2016 13:31:33 +0000</pubDate>
-    <lastBuildDate>Sun, 09 Oct 2016 13:31:33 +0000</lastBuildDate>
+    <pubDate>Sun, 09 Oct 2016 13:46:45 +0000</pubDate>
+    <lastBuildDate>Sun, 09 Oct 2016 13:46:45 +0000</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -26,10 +26,10 @@ root directory for the current running process and its children.
 A program that is run in such a modified environment cannot name (and therefore 
 normally cannot access) files outside the designated directory tree.&lt;/p&gt;
 
-&lt;p&gt;You can install a completely different version of GNU/Linux inside the chroot.
+&lt;p&gt;You can install a completely different flavor of GNU/Linux inside the chroot.
 &lt;a href=&quot;https://wiki.debian.org/chroot&quot;&gt;Here&lt;/a&gt; you can find some useful
 documentation on how to do that. In particular, you can use
-[debootstrap][https://www.debian.org/releases/stable/amd64/apds03.html.en]
+&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/apds03.html.en&quot;&gt;debootstrap&lt;/a&gt;
 for installing a Debian system (or its derivatives like Ubuntu) inside
 another. For instance, I have used debootstrap for installing  Ubuntu 
 Xenial Xerus (16.04) instance (which provides the updated jekyll package
@@ -38,7 +38,7 @@ that I needed) inside my Ubuntu 14.04 system, by running&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;debootstrap xenial /xenial-root&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You need to mount several pseudo filesystems before entering into the 
-the chrooted enviroment.using the command chroot. I am using the following
+the chrooted environment.using the command chroot. I am using the following
 script for doing that.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh -v&lt;/span&gt;
@@ -50,10 +50,10 @@ cp /etc/hosts xenial-root/etc/hosts
 chroot xenial-root /bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Tip: if you install a Debian-derived system (like Ubunutu) is convenient to
-create a file /etc/debian_chroot file with a name for your chroot
+create a file &lt;strong&gt;/etc/debian_chroot&lt;/strong&gt; file with a name for your chroot
 environment. This will be shown in the shell prompt so you can easily know
-if you are inside the chroot or not, thanks to the follwing
-magic in /etc/bash.bashrc which sets the PS1 environment variable.&lt;/p&gt;
+whether you are inside the chroot or not, thanks to the following
+magic in &lt;strong&gt;/etc/bash.bashrc&lt;/strong&gt; which sets the PS1 environment variable.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# set variable identifying the chroot you work in (used in the prompt below)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;debian_chroot&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:-}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -r /etc/debian_chroot &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
@@ -69,6 +69,11 @@ more secure, there are other options like using
 &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker&lt;/a&gt; or using a virtual machine (with
 &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;Virtualbox&lt;/a&gt; or
 &lt;a href=&quot;http://wiki.qemu.org/Main_Page&quot;&gt;Quemu&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note also that you will be still running the same kernel of the host system.
+This places some limitations (The chroot technique won’t work if the system 
+that you want to run inside it needs some newer features in the kernel that
+are not available in the host!).&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 25 Sep 2016 00:09:32 +0000</pubDate>
