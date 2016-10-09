@@ -46,7 +46,7 @@ cp /etc/hosts xenial-root/etc/hosts
 chroot xenial-root /bin/bash
 {% endhighlight %}
 
-Tip: if you install a Debian-derived system (like Ubunutu) is convenient to
+**Tip**: if you install a Debian-derived system (like Ubunutu) is convenient to
 create a file **/etc/debian_chroot** file with a name for your chroot
 environment. This will be shown in the shell prompt so you can easily know
 whether you are inside the chroot or not, thanks to the following
@@ -74,6 +74,17 @@ This places some limitations (The chroot technique won't work if the system
 that you want to run inside it needs some newer features in the kernel that
 are not available in the host!).
 
+**Tip**: By the way, if you just want to install ruby and jekyll, after some trials, I have found 
+[this tutorial](https://gorails.com/setup/ubuntu/14.04) where it is clearly 
+explained how to install the current version of ruby from the sources for your user, 
+without super-user (root) privileges. After that,
+
+{% highlight bash %}
+gem install jekyll bundler
+{% endhighlight %}
+
+as explained in the [Jeckyll web page](https://jekyllrb.com/). I recommend 
+this way of installation.
 
 
  

@@ -4,11 +4,11 @@
     <title>Some Random Personal Bytes</title>
     <description>A blog by Pablo De Nápoli on free software and programming.
 </description>
-    <link>http://pdenapo.github.io/</link>
-    <atom:link href="http://pdenapo.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Oct 2016 13:46:45 +0000</pubDate>
-    <lastBuildDate>Sun, 09 Oct 2016 13:46:45 +0000</lastBuildDate>
-    <generator>Jekyll v3.2.1</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 09 Oct 2016 19:46:30 -0300</pubDate>
+    <lastBuildDate>Sun, 09 Oct 2016 19:46:30 -0300</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
     
       <item>
         <title>Creating a Chroot</title>
@@ -49,7 +49,7 @@ mount --bind /dev/pts /xenial-root/dev/pts
 cp /etc/hosts xenial-root/etc/hosts
 chroot xenial-root /bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Tip: if you install a Debian-derived system (like Ubunutu) is convenient to
+&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: if you install a Debian-derived system (like Ubunutu) is convenient to
 create a file &lt;strong&gt;/etc/debian_chroot&lt;/strong&gt; file with a name for your chroot
 environment. This will be shown in the shell prompt so you can easily know
 whether you are inside the chroot or not, thanks to the following
@@ -75,10 +75,20 @@ This places some limitations (The chroot technique won’t work if the system
 that you want to run inside it needs some newer features in the kernel that
 are not available in the host!).&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: By the way, if you just want to install ruby and jekyll, after some trials, I have found 
+&lt;a href=&quot;https://gorails.com/setup/ubuntu/14.04&quot;&gt;this tutorial&lt;/a&gt; where it is clearly 
+explained how to install the current version of ruby from the sources for your user, 
+without super-user (root) privileges. After that,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gem install jekyll bundler&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;as explained in the &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jeckyll web page&lt;/a&gt;. I recommend 
+this way of installation.&lt;/p&gt;
+
 </description>
-        <pubDate>Sun, 25 Sep 2016 00:09:32 +0000</pubDate>
-        <link>http://pdenapo.github.io/gnu/linux/tricks/2016/09/25/creating_a_chroot.html</link>
-        <guid isPermaLink="true">http://pdenapo.github.io/gnu/linux/tricks/2016/09/25/creating_a_chroot.html</guid>
+        <pubDate>Sat, 24 Sep 2016 21:09:32 -0300</pubDate>
+        <link>http://localhost:4000/gnu/linux/tricks/2016/09/24/creating_a_chroot.html</link>
+        <guid isPermaLink="true">http://localhost:4000/gnu/linux/tricks/2016/09/24/creating_a_chroot.html</guid>
         
         
         <category>GNU/Linux</category>
@@ -196,9 +206,9 @@ ninja bootcd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/user/reactos-work/rosbuild/reactos/bootcd.iso&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/user/reactos-work/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;       &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
-        <pubDate>Sun, 25 Sep 2016 00:09:32 +0000</pubDate>
-        <link>http://pdenapo.github.io/react/os/2016/09/25/building_reactos_under_gnu_linux.html</link>
-        <guid isPermaLink="true">http://pdenapo.github.io/react/os/2016/09/25/building_reactos_under_gnu_linux.html</guid>
+        <pubDate>Sat, 24 Sep 2016 21:09:32 -0300</pubDate>
+        <link>http://localhost:4000/react/os/2016/09/24/building_reactos_under_gnu_linux.html</link>
+        <guid isPermaLink="true">http://localhost:4000/react/os/2016/09/24/building_reactos_under_gnu_linux.html</guid>
         
         
         <category>React</category>
